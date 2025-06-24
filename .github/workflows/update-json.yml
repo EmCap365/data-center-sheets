@@ -22,6 +22,9 @@ jobs:
       - name: Create creds.json
         run: echo "${{ secrets.GSHEET_CREDS }}" > creds.json
 
+      - name: Debug creds.json
+        run: cat creds.json
+
       - name: Run export script
         env:
           SHEET_ID: 1Ybm5OiBXGlo8gOOcfJzAxHddytnRJH5LrCnkaew1eq4
