@@ -19,8 +19,9 @@ jobs:
       - name: Install dependencies
         run: pip install gspread oauth2client
 
-      - name: Create creds.json
-        run: echo "${{ secrets.GSHEET_CREDS }}" > creds.json
+      - name: Decode and write creds.json
+        run: echo "${{ secrets.GSHEET_CREDS }}" | base64 --decode > creds.json
+
 
       - name: Debug creds.json
         run: cat creds.json
